@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/blogsFragment">
+
+    <fragment
+        android:id="@+id/blogsFragment"
+        android:name="com.example.assignmentvrid.ui.fragments.BlogsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_blogs" >
+        <action
+            android:id="@+id/action_newsFragment_to_savedNewsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+
+            app:destination="@id/savedBlogFragment" />
+        <action
+            android:id="@+id/action_blogsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedBlogFragment"
+        android:name="com.example.assignmentvrid.ui.fragments.SavedBlogsFragment"
+        android:label="fragment_saved_news"
+        tools:layout="@layout/fragment_saved_blogs" >
+        <action
+            android:id="@+id/action_savedNewsFragment_to_newsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:destination="@id/blogsFragment" />
+        <action
+            android:id="@+id/action_savedBlogFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.assignmentvrid.ui.fragments.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/fragment_article" >
+        <argument
+            android:name="article"
+            app:argType="com.example.assignmentvrid.modal.Blog" />
+    </fragment>
+</navigation>
